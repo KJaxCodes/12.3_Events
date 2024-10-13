@@ -91,9 +91,11 @@ document.addEventListener('DOMContentLoaded', function () {
     // the function that adds a new box. Remember to ignore the event if it is
     // triggered from the color input element.
 
-    // document.addEventListener('keypress', function (e) {
+    // document.addEventListener('keydown', function (e) {
     //     e.preventDefault();
-    //     //if(write a conditional to say, don't do anything/ignore if keys pressed in the form input box, target???)
+    //     if (e.target.id === 'color-input') {
+    //         return;
+    //     }
     //     else (e.key === "N" || e.key === "n") {
     //         createNewBox();
     //     }
