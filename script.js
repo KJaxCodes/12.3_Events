@@ -61,18 +61,18 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     newBoxBtn.addEventListener('click', function () {
-        createNewBox();
+        createNewBox(); //click on 'New Box' to create a new box
     })
 
     boxContainer.addEventListener('dblclick', function (event) {
         event.preventDefault();
-        const box = document.querySelector('.box');
+        const box = document.querySelector('.box'); //double click on a box to remove it
         box.remove();
     })
 
     boxContainer.addEventListener('mouseover', function (event) {
         if (event.target.classList.contains("box")) {
-            event.target.textContent = `x: ${event.pageX}, y: ${event.pageY}`; //Changes the display text to the coordinates.
+            event.target.textContent = `x: ${event.pageX}, y: ${event.pageY}`; //Changes the display text to the page coordinates when mouse is over the box
         }
     })
 
@@ -88,14 +88,12 @@ document.addEventListener('DOMContentLoaded', function () {
     // triggered from the color input element.
 
     document.addEventListener('keydown', function (e) {
-
-        if (e.target.id === 'color-input') {
+        if (e.target.id === 'color-input') {   //ignore this event if it takes place inside the color-input box
             return;
         }
         else if (e.key === "N" || e.key === "n") {
-            createNewBox();
+            createNewBox();  //create a new box if n or N is pressed
         }
     })
-
 
 })
