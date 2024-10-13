@@ -25,18 +25,16 @@ document.addEventListener('DOMContentLoaded', function () {
     //In this function, set the box ID as content, the class name, ????
     //and the background color from the box color variable we created in Step 3.
 
-    // Besides, set the box ID to a data attribute. -??????
+    // Besides, set the box ID to a data attribute.
 
-    //You'll need this attribute to set the display text back to ID when the mouse leaves. (inner text????)
+    //You'll need this attribute to set the display text back to ID when the mouse leaves.
     //Since we used this counter ID, increment it using the counter variable 
     //we created in Step 3 to keep its uniqueness.
     const createNewBox = function () {
         const box = document.createElement('div'); //creates the box
-        console.dir(box);
         box.className = "box"; //create css class box
         box.style.backgroundColor = boxColor; //sets the background color to the box color variable
         boxContainer.appendChild(box); //appends box to the box container div when you create a new box
-
         boxIdCounter++; //increment the box ID counter
         box.setAttribute('id', `box-${boxIdCounter}`);
         box.textContent = `Box ${boxIdCounter}`; // Display the ID inside the box
@@ -59,14 +57,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
         boxColor = colorValue;  // Store the selected color in the boxColor variable
 
-
         colorInput.value = ''; // Reset the input field
     });
 
     newBoxBtn.addEventListener('click', function () {
         createNewBox();
     })
-
 
     boxContainer.addEventListener('dblclick', function (event) {
         event.preventDefault();
@@ -91,15 +87,15 @@ document.addEventListener('DOMContentLoaded', function () {
     // the function that adds a new box. Remember to ignore the event if it is
     // triggered from the color input element.
 
-    // document.addEventListener('keydown', function (e) {
-    //     e.preventDefault();
-    //     if (e.target.id === 'color-input') {
-    //         return;
-    //     }
-    //     else (e.key === "N" || e.key === "n") {
-    //         createNewBox();
-    //     }
-    // })
+    document.addEventListener('keydown', function (e) {
+
+        if (e.target.id === 'color-input') {
+            return;
+        }
+        else if (e.key === "N" || e.key === "n") {
+            createNewBox();
+        }
+    })
 
 
 })
